@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="admin_basic::head">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+    <div class="container">
+        <div th:replace="admin_basic::navbar(1)"></div>
+        <div class="container" >
+            <div class="row clearfix">
+                <div th:replace="admin_basic::side(1,1)"></div>
+                <div class="col-md-8 column">
+                    <div class="jumbotron">
+                        <div class="container">
+                            <h1>欢迎登陆！</h1>
+                            <p>have a nice day</p>
+                        </div>
+                    </div>
+                    <div id="main" style="width: 100%;height:400px;"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

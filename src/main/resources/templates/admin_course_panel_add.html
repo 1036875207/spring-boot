@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="admin_basic::head">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+
+<div class="container">
+    <div th:replace="admin_basic::navbar(4)"></div>
+    <div class="container" >
+        <div class="row clearfix">
+            <div th:replace="admin_basic::side(2,4)"></div>
+            <div class="col-md-8 column">
+                <div class="panel panel-default">
+                    <div class="panel-body admin_index_update">
+                        <form action="/admin_course_panel_add_data" method="post"  enctype="multipart/form-data">
+                            <label class="control-label">课程名：</label>
+                            <input type="text" class="form-control" name="name" placeholder="课程名"   >
+                            <label class="control-label">课程时长：</label>
+                            <input type="text" class="form-control" name="time" placeholder="课程时长"   >
+                            <label class="control-label">描述：</label>
+                            <textarea class="form-control" name="describ" rows="5"></textarea>
+                            <label class="control-label">任课老师:</label>
+                           <!-- <div class="input-group">
+                                <div class="input-group-btn">
+                                </div>&lt;!&ndash; /btn-group &ndash;&gt;
+                                <input type="text" name="name" class="form-control" style="margin:0px"  placeholder="教师姓名" required readonly>
+                                <span class="input-group-btn" >
+                                    <button class="btn btn-default" type="button" data-toggle="modal" data-target="#myModal">选择教师</button>
+                                </span>
+                            </div>-->
+                            <select name="teacher" class="form-control"  required>
+                                <option th:each="teacher:${teachers}" th:value="${teacher.id}" th:text="${teacher.account}+'--'+${teacher.name}"  >小学一年级</option>
+                            </select>
+                            <input type="submit" class="btn btn-default"  value="提交">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

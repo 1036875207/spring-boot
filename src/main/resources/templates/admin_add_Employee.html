@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="/user_register" method="post">
+    <input type="text" name="account" placeholder="账号">
+    <input type="password" name="password" placeholder="密码" required="required">
+    <input type="text" name="name" placeholder="真实姓名" required="required">
+    <input type="email" name="email" placeholder="邮箱" required="required">
+    <input type="tel" name="phone" placeholder="电话" required="required">
+    <input type="text" name="salary" placeholder="工薪" required="required">
+    <select name="gender">
+        <option value="0" >男</option>
+        <option value="1" >女</option>
+    </select>
+    <h2>选择职位</h2>
+    <select name="position">
+        <option th:each="data : ${data}"  th:value="${data.id}" th:text="${data.name}">male</option>
+    </select>
+    <select name="status" class="form-control">
+        <option value="0" >离职</option>
+        <option value="1" >在职</option>
+    </select>
+    <input type="submit"  value="Add">
+
+</form>
+</body>
+</html>

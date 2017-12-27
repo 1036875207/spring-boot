@@ -1,0 +1,20 @@
+name: 中小型教育企业CRM管理系统
+own: Isaac,Lisa
+build-date: 2017.11.26
+
+server:
+  port: 8080
+spring:
+  thymeleaf:
+    mode: LEGACYHTML5
+    content-type: text/html
+    cache: false
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://106.14.123.168:3306/group?useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: 123456
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true

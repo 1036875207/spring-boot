@@ -1,0 +1,21 @@
+.login_panel{
+    width: 400px;
+    margin: 0 auto;
+    height:500px;
+}
+.btn-group{
+    margin: 10px 0px;
+}
+.admin_index_update input{
+    margin: 10px 0;
+}
+/*
+body{
+    background: #252839;
+}
+.col-md-8 *{
+    color: white;
+}
+.col-md-3 ul li a{
+    background: #fff;
+}*/

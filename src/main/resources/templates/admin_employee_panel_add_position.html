@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="admin_basic::head">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>hello</title>
+
+</head>
+<body>
+
+<div class="container">
+    <div th:replace="admin_basic::navbar(2)"></div>
+    <div class="container" >
+        <div class="row clearfix">
+            <div th:replace="admin_basic::side(3,2)"></div>
+            <div class="col-md-8 column">
+                <div class="panel panel-default">
+                    <div class="panel-body admin_index_update">
+                        <form action="/admin_employee_panel_add_position" method="post"  enctype="multipart/form-data">
+                            <label class="control-label">角色名称：</label>
+                            <input type="text" class="form-control" name="name" placeholder="角色名"   >
+                            <label class="control-label">描述：</label>
+                            <textarea class="form-control" name="describ" rows="5" placeholder="请在此添加角色特点与描述..."></textarea>
+                            <label class="control-label">权限分配:</label>
+                            <ul th:each="permission:${permissions}">
+                                <li><label><input name="permission" type="checkbox" th:text="${permission.name}" th:value="${permission.id}" /> </label></li>
+                            </ul>
+                            <input type="submit" class="btn btn-default"  value="提交">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

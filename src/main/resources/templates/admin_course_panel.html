@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="admin_basic::head">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+    <div class="container">
+        <div th:replace="admin_basic::navbar(4)"></div>
+        <div class="container" >
+            <div class="row clearfix">
+                <div th:replace="admin_basic::side(1,4)"></div>
+                <div class="col-md-8 column" >
+                    <form action="admin_student_panel_list_search" method="get">
+                        <div class="input-group">
+                        <div class="input-group-btn">
+                        </div><!-- /btn-group -->
+                        <input type="text" name="name" class="form-control" th:value="${#httpServletRequest.getParameter('name')}" placeholder="输入课程名" required>
+                        <span class="input-group-btn">
+                        <button class="btn btn-default" type="submit">搜索</button>
+                    </span>
+                    </div><!-- /input-group -->
+                    </form>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>编码</th>
+                            <th>课程名</th>
+                            <th>教师id</th>
+                            <th>录入时间</th>
+                        </tr>
+                        </thead>
+                        <tbody th:each="course:${courses}">
+
+                        <tr>
+                           <td th:text="${course.id}"></td>
+                            <td th:text="${course.name}">Bangalore</td>
+                            <td th:text="${course.employee.name}">Bangalore</td>
+                            <td th:text="${new com.software.demo.Utils.UtilDate().stampToDate(course.inputdate)}">Bangalore</td>
+                            <td ><a href="#" th:href="'admin_student_panel_list_detail?id='+${course.id}">编辑</a></td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
