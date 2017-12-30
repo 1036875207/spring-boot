@@ -9,7 +9,7 @@ public class Employee {
     @GeneratedValue
     private Integer id;
     @ManyToOne
-    @JoinColumn(name = "position_id",foreignKey = @ForeignKey(name = "fk_position_fc"))
+    @JoinColumn(name = "position_id")
     private Positon position;
     private String name;
     private String account;

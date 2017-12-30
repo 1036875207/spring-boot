@@ -29,7 +29,6 @@
                 <li th:class="${i}==2?'active':''"><a href="admin_employee_panel" >账号管理</a></li>
                 <li th:class="${i}==3?'active':''"><a href="admin_student_panel" >学生管理</a></li>
                 <li th:class="${i}==4?'active':''"><a href="admin_course_panel" >课程管理</a></li>
-                <li th:class="${i}==5?'active':''"><a href="admin_grade_panel" >成绩管理</a></li>
                 <li th:class="${i}==6?'active':''"><a href="admin_sale_panel" >销售管理</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
@@ -49,9 +48,9 @@
                 </ul>
                 <ul class="nav nav-pills nav-stacked" th:case="2" >
                     <li class="active" th:class="${j}==1?'active':''"><a href="admin_employee_panel">员工列表</a></li>
-                    <li th:class="${j}==2?'active':''"><a href="admin_employee_panel_permission" >权限列表</a></li>
+                    <li th:class="${j}==2?'active':''"><a href="admin_employee_panel_position" >权限列表</a></li>
                     <li th:class="${j}==3?'active':''"><a href="admin_employee_panel_add_position" >权限分配</a></li>
-                    <li th:class="${j}==4?'active':''"><a href="admin_index_news" >添加账号</a></li>
+                    <li th:class="${j}==4?'active':''"><a href="admin_employee_panel_add" >添加账号</a></li>
                 </ul>
                 <ul class="nav nav-pills nav-stacked" th:case="3" >
                     <li class="active" th:class="${j}==1?'active':''"><a href="admin_student_panel">学生信息</a></li>
@@ -62,11 +61,7 @@
                <ul class="nav nav-pills nav-stacked" th:case="4" >
                 <li class="active" th:class="${j}==1?'active':''"><a href="admin_course_panel">课程列表</a></li>
                 <li th:class="${j}==2?'active':''"><a href="admin_course_panel_add" >添加课程</a></li>
-                </ul>
-                <ul class="nav nav-pills nav-stacked" th:case="5" >
-                    <li class="active" th:class="${j}==1?'active':''"><a href="admin_course_panel">课程列表</a></li>
-                    <li th:class="${j}==2?'active':''"><a href="admin_index_daily" >课程安排<span class="label label-warning" style="float: right">0</span></a></li>
-                    <li th:class="${j}==3?'active':''"><a href="admin_course_panel_students" >成绩录入</a></li>
+                   <li th:class="${j}==3?'active':''"><a href="admin_course_panel_students" >成绩录入</a></li>
                 </ul>
             </div>
             <!--<div class="col-md-9 column" th:fragment="edition_place">-->

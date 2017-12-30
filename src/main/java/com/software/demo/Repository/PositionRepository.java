@@ -6,5 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface PositionRepository extends JpaRepository<Positon,Integer>{
 
+    Positon findByName(String name);
 
 }

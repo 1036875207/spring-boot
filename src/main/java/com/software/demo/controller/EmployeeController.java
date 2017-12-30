@@ -65,7 +65,7 @@ public class EmployeeController {
      /*  添加用户端口*/
     @RequestMapping(value = "/user_register",method = RequestMethod.POST)
     public String register(Model model, @RequestParam("account") String account, @RequestParam("password") String pass,
-                           @RequestParam("phone") String phone, @RequestParam("gender") Integer gender,@RequestParam("salary") Long salary,
+                           @RequestParam("phone") String phone, @RequestParam("gender") Integer gender,
                            @RequestParam("name")String name, @RequestParam("email") String email,@RequestParam("position") int positon_id,
                            @RequestParam("status") Integer status){
         Employee employee=new Employee();
@@ -77,14 +77,14 @@ public class EmployeeController {
         employee.setEmail(email);
         Positon position=positionRepository.findOne(positon_id);
         employee.setPosition(position);
-        employee.setSalary(salary);
         employee.setStatus(status);
+        employee.setHead("upload//orghead.jpg");
         try{
             employeeRepository.save(employee);
             model.addAttribute("name",name);
-            return "admin_login";
+            return "redirect:admin_employee_panel";
         }catch (Exception e){
-            return "fail";
+            return "redirect:admin_employee_panel";
         }
 
     }
@@ -210,4 +210,29 @@ public class EmployeeController {
         return "admin_login";
        //return "forward:/find_position_by_id?id="+employee.getPosition_id();
     }
+
+    @GetMapping(value = "admin_employee_panel_add")
+    public String admin_employee_panel_add(HttpServletRequest request,Model model){
+        String id  ;
+        //获取所有Cookie
+        Cookie[] cookies = request.getCookies();
+        //如果浏览器中存在Cookie
+        if (cookies != null && cookies.length > 0) {
+            //遍历所有Cookie
+            for(Cookie cookie: cookies) {
+                //找到name为city的Cookie
+                if (cookie.getName().equals("id")) {
+                    //使用URLDecode.decode()解码,防止中文乱码
+                    id = cookie.getValue();
+                    Employee employee=employeeRepository.findOne(Integer.parseInt(id));
+                    model.addAttribute("data",employee);
+                    List<Positon> positon=positionRepository.findAll();
+                    model.addAttribute("positions",positon);
+                    return "admin_employee_panel_add";
+                }
+            }
+        }
+        return "admin_login";
+    }
+
 }

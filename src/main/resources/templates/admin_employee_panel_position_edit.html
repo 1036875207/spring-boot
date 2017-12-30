@@ -19,14 +19,19 @@
             <div class="col-md-8 column">
                 <div class="panel panel-default">
                     <div class="panel-body admin_index_update">
-                        <form action="/admin_employee_panel_add_position" method="post"  enctype="multipart/form-data">
+                        <form action="/admin_employee_panel_position_edit" method="post"  enctype="multipart/form-data">
                             <label class="control-label">角色名称：</label>
-                            <input type="text" class="form-control" name="name" placeholder="角色名"   required>
+                            <input type="text" class="form-control" name="name" placeholder="角色名" th:value="${positon.name}"   required readonly>
                             <label class="control-label">部门：</label>
-                            <input type="text" class="form-control"  name="describ" required>
-                            <label class="control-label">权限分配:</label>
+                            <input type="text" class="form-control" th:value="${positon.apartment}"   name="describ" required>
+                            <label class="control-label">现有权限:</label>
+                            <ul th:each="per:${positon.permissions}" >
+                                <li th:text="${per.name}" >
+                                </li>
+                            </ul>
+                            <label class="control-label">权限设置:</label>
                             <ul th:each="permission:${permissions}" >
-                                <li><label><input name="permission" type="checkbox" th:text="${permission.name}" th:value="${permission.id}" /> </label></li>
+                                <li ><label ><input name="permission" type="checkbox" th:text="${permission.name}" th:value="${permission.id}"   /> </label></li>
                             </ul>
                             <input type="submit" class="btn btn-default"  value="提交">
                         </form>

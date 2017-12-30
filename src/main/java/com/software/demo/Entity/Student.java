@@ -25,11 +25,22 @@ public class Student {
 
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "student")
     private List<Grade> grades;
+
+    @ManyToMany(mappedBy = "students")
+    List<Course> courses;
      /*  0 已注册
     1 已入学
     2 中途退出
     3 学业完成*/
     private Integer status;
+
+    public List<Course> getCourses() {
+        return courses;
+    }
+
+    public void setCourses(List<Course> courses) {
+        this.courses = courses;
+    }
 
     public String getGreade() {
         return greade;

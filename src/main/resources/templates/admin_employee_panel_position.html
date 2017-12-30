@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="admin_basic::head">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+    <div class="container">
+        <div th:replace="admin_basic::navbar(2)"></div>
+        <div class="container" >
+            <div class="row clearfix">
+                <div th:replace="admin_basic::side(2,2)"></div>
+                <div class="col-md-8 column" >
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>职位</th>
+                            <th>部门</th>
+                            <th>权限</th>
+                            <th>教师</th>
+                        </tr>
+                        </thead>
+                        <tbody th:each="position:${positons}">
+
+                        <tr>
+                           <td th:text="${position.name}"></td>
+                            <td th:text="${position.apartment}">Bangalore</td>
+                            <td >
+                                <ul th:each="permission:${position.permissions}">
+                                    <li th:text="${permission.name}"></li>
+                                </ul>
+                            </td>
+                            <td >
+                                <ul th:each="employee:${position.employees}">
+                                    <li th:text="${employee.name}"></li>
+                                </ul>
+                            </td>
+                                <td ><a href="#" th:href="'admin_employee_panel_position_edit?id='+${position.id}">编辑</a></td>
+                        </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>

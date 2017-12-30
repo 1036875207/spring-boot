@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="admin_basic::head">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+<div class="container">
+    <div th:replace="admin_basic::navbar(2)"></div>
+    <div class="container" >
+        <div class="row clearfix">
+            <div th:replace="admin_basic::side(1,2)"></div>
+            <div class="col-md-8 column" >
+                <!--<form action="admin_student_panel_list_search" method="get">
+                    <div class="input-group">
+                    <div class="input-group-btn">
+                    </div>&lt;!&ndash; /btn-group &ndash;&gt;
+                    <input type="text" name="name" class="form-control" th:value="${#httpServletRequest.getParameter('name')}" placeholder="输入课程名" required>
+                    <span class="input-group-btn">
+                    <button class="btn btn-default" type="submit">搜索</button>
+                </span>
+                </div>&lt;!&ndash; /input-group &ndash;&gt;
+                </form>-->
+                <div class="row" >
+                    <div class="col-sm-6 col-md-4" th:each="employee:${employees}">
+                        <div class="thumbnail">
+                            <img  th:src="${employee.head}" alt="upload/update.jpg">
+                            <div class="caption">
+                                <h3  th:text="${employee.name}">Thumbnail label</h3>
+                                <p  th:text="${employee.position.name}">...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

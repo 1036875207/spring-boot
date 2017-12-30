@@ -33,6 +33,7 @@
                             <th>课程名</th>
                             <th>教师id</th>
                             <th>录入时间</th>
+                            <th>成员</th>
                         </tr>
                         </thead>
                         <tbody th:each="course:${courses}">
@@ -42,6 +43,12 @@
                             <td th:text="${course.name}">Bangalore</td>
                             <td th:text="${course.employee.name}">Bangalore</td>
                             <td th:text="${new com.software.demo.Utils.UtilDate().stampToDate(course.inputdate)}">Bangalore</td>
+                        <!--    <td >
+                                <ul th:each="student:${course.students}">
+                                    <li th:text="${student.name}"></li>
+                                </ul>
+
+                            </td>-->
                             <td ><a href="#" th:href="'admin_student_panel_list_detail?id='+${course.id}">编辑</a></td>
                         </tr>
 

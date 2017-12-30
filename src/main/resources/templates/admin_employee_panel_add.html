@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="admin_basic::head">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+<body>
+
+<div class="container">
+    <div th:replace="admin_basic::navbar(2)"></div>
+    <div class="container" >
+        <div class="row clearfix">
+            <div th:replace="admin_basic::side(4,2)"></div>
+            <div class="col-md-8 column">
+                <div class="panel panel-default">
+                <div class="panel-body admin_index_update">
+                    <form action="/user_register" method="post"  enctype="multipart/form-data">
+                        <div class="head">
+                            <img src="upload/orghead.jpg"  alt="update/update.jpg" style="width: 100px;height: 100px;" >
+                            <!--<input name="i" type="file" text="选择图片">-->
+                            <input type="file" name="file">
+                        </div>
+                        <label class="control-label">账号：</label>
+                        <input type="text" class="form-control" name="account" placeholder="account"   >
+                        <label class="control-label">密码：</label>
+                        <input type="password" class="form-control" name="password" placeholder="password" required="required">
+                        <label class="control-label">真实姓名：</label>
+                        <input type="text" class="form-control" name="name" placeholder="真实姓名"  required="required" >
+                        <label class="control-label">邮箱：</label>
+                        <input type="email" class="form-control" name="email" placeholder="email"  required="required">
+                        <label class="control-label">电话号码：</label>
+                        <input type="tel" class="form-control" name="phone" placeholder="phone"  required="required">
+                        <label class="control-label">性别：</label>
+                        <select name="gender" class="form-control">
+                            <option value="0"   >男</option>
+                            <option value="1"   >女</option>
+                        </select>
+                        <label class="control-label">职位：</label>
+                        <select name="position" class="form-control" >
+                            <option value="0" th:each="position:${positions}"  th:text="${position.name}" th:value="${position.id}" >职位</option>
+                        </select>
+                        <label class="control-label">状态：</label>
+                        <select name="status" class="form-control" >
+                            <option value="0"   >离职</option>
+                            <option value="1"   >在职</option>
+                        </select>
+                        <input type="submit"  class="control-label"  value="更新">
+                    </form>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

@@ -18,6 +18,11 @@ public class Course {
     @OneToMany(fetch = FetchType.LAZY,mappedBy = "course")
     List<Grade> Grade;
 
+    @ManyToMany
+    @JoinTable(name = "Course_Position",
+            joinColumns = { @JoinColumn(name = "Course_ID", referencedColumnName = "id") },
+            inverseJoinColumns = { @JoinColumn(name = "Position_ID", referencedColumnName = "id") })
+    List<Student> students;
     public List<com.software.demo.Entity.Grade> getGrade() {
         return Grade;
     }
@@ -72,5 +77,13 @@ public class Course {
 
     public void setEmployee(Employee employee) {
         this.employee = employee;
+    }
+
+    public List<Student> getStudents() {
+        return students;
+    }
+
+    public void setStudents(List<Student> students) {
+        this.students = students;
     }
 }
